@@ -1,4 +1,4 @@
-package ru.reybos.model;
+package ru.reybos.model.car;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "car_transmission_box_type")
-public class CarTransmissionBoxType {
+@Table(name = "car_body_type")
+public class CarBodyType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,18 +16,18 @@ public class CarTransmissionBoxType {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "carTransmissionBoxType")
+    @OneToMany(mappedBy = "carBodyType")
     private List<Car> cars = new ArrayList<>();
+
+    public static CarBodyType of(String name) {
+        CarBodyType carBodyType = new CarBodyType();
+        carBodyType.setName(name);
+        return carBodyType;
+    }
 
     public void addCar(Car car) {
         this.cars.add(car);
-        car.setCarTransmissionBoxType(this);
-    }
-
-    public static CarTransmissionBoxType of(String name) {
-        CarTransmissionBoxType carTransmissionBoxType = new CarTransmissionBoxType();
-        carTransmissionBoxType.setName(name);
-        return carTransmissionBoxType;
+        car.setCarBodyType(this);
     }
 
     public int getId() {
@@ -62,7 +62,7 @@ public class CarTransmissionBoxType {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CarTransmissionBoxType that = (CarTransmissionBoxType) o;
+        CarBodyType that = (CarBodyType) o;
         return id == that.id;
     }
 

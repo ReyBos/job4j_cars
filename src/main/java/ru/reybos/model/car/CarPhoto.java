@@ -1,4 +1,4 @@
-package ru.reybos.model;
+package ru.reybos.model.car;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -11,7 +11,7 @@ public class CarPhoto {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_id")
     private Car car;
 

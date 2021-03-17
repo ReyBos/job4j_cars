@@ -7,13 +7,15 @@
         <property name="hibernate.connection.password">password</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
 
-        <mapping class="ru.reybos.model.Car" />
-        <mapping class="ru.reybos.model.CarEngineType" />
-        <mapping class="ru.reybos.model.CarBodyType" />
-        <mapping class="ru.reybos.model.CarModel" />
+        <mapping class="ru.reybos.model.car.Car" />
+        <mapping class="ru.reybos.model.car.CarEngineType" />
+        <mapping class="ru.reybos.model.car.CarBodyType" />
+        <mapping class="ru.reybos.model.car.CarModel" />
         <mapping class="ru.reybos.model.City" />
         <mapping class="ru.reybos.model.User" />
-        <mapping class="ru.reybos.model.CarPhoto" />
-        <mapping class="ru.reybos.model.CarTransmissionBoxType" />
+        <mapping class="ru.reybos.model.car.CarPhoto" />
+        <mapping class="ru.reybos.model.car.CarTransmissionBoxType" />
+        <mapping class="ru.reybos.model.announcement.AnnouncementType" />
+        <mapping class="ru.reybos.model.announcement.Announcement" />
     </session-factory>
 </hibernate-configuration>

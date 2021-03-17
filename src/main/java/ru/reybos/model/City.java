@@ -1,5 +1,7 @@
 package ru.reybos.model;
 
+import ru.reybos.model.announcement.Announcement;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ public class City {
     private String name;
 
     @OneToMany(mappedBy = "city")
-    private List<Car> cars = new ArrayList<>();
+    private List<Announcement> announcements = new ArrayList<>();
 
     public static City of(String name) {
         City city = new City();
@@ -25,9 +27,9 @@ public class City {
         return city;
     }
 
-    public void addCar(Car car) {
-        this.cars.add(car);
-        car.setCity(this);
+    public void addAnnouncement(Announcement announcement) {
+        this.announcements.add(announcement);
+        announcement.setCity(this);
     }
 
     public int getId() {
@@ -46,8 +48,12 @@ public class City {
         this.name = name;
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<Announcement> getAnnouncements() {
+        return announcements;
+    }
+
+    public void setAnnouncements(List<Announcement> announcements) {
+        this.announcements = announcements;
     }
 
     @Override

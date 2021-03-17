@@ -1,6 +1,4 @@
-package ru.reybos.model;
-
-import ru.reybos.model.announcement.Announcement;
+package ru.reybos.model.announcement;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,8 +6,8 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "announcement_type")
+public class AnnouncementType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -18,30 +16,18 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "login")
-    private String login;
-
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "phone")
-    private String phone;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(mappedBy = "announcementType")
     private List<Announcement> announcements = new ArrayList<>();
 
-    public static User of(String name, String login, String password, String phone) {
-        User user = new User();
-        user.setName(name);
-        user.setLogin(login);
-        user.setPassword(password);
-        user.setPhone(phone);
-        return user;
+    public static AnnouncementType of(String name) {
+        AnnouncementType announcementType = new AnnouncementType();
+        announcementType.setName(name);
+        return announcementType;
     }
 
     public void addAnnouncement(Announcement announcement) {
         this.announcements.add(announcement);
-        announcement.setUser(this);
+        announcement.setAnnouncementType(this);
     }
 
     public int getId() {
@@ -60,30 +46,6 @@ public class User {
         this.name = name;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public List<Announcement> getAnnouncements() {
         return announcements;
     }
@@ -100,8 +62,8 @@ public class User {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        User user = (User) o;
-        return id == user.id;
+        AnnouncementType that = (AnnouncementType) o;
+        return id == that.id;
     }
 
     @Override

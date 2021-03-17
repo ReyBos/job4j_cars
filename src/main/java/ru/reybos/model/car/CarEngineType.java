@@ -1,4 +1,4 @@
-package ru.reybos.model;
+package ru.reybos.model.car;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,15 +19,15 @@ public class CarEngineType {
     @OneToMany(mappedBy = "carEngineType")
     private List<Car> cars = new ArrayList<>();
 
-    public void addCar(Car car) {
-        this.cars.add(car);
-        car.setCarEngineType(this);
-    }
-
     public static CarEngineType of(String name) {
         CarEngineType carEngineType = new CarEngineType();
         carEngineType.setName(name);
         return carEngineType;
+    }
+
+    public void addCar(Car car) {
+        this.cars.add(car);
+        car.setCarEngineType(this);
     }
 
     public int getId() {
