@@ -157,6 +157,10 @@
 <h2><a name="links">Полезные ссылки</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
 <p>Ресурсы которые были полезны при создании проекта</p>
 <ul>
+    <li>
+        <strong><a href="https://ru.stackoverflow.com/questions/381936/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%82%D1%8C-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-ajax-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D1%84%D0%BE%D1%80%D0%BC%D1%8B-file">link</a></strong>
+        - ajax отправка файла из формы
+    </li>
     <!--<li>
         <strong><a href="">link</a></strong>
         - настройка логирования Hibernate
