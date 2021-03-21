@@ -4,9 +4,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <name>cars</name>
+
   <groupId>ru.reybos</groupId>
   <artifactId>cars</artifactId>
-  <version>1.0</version>
+  <version>1.2</version>
   <packaging>war</packaging>
 
   <properties>
@@ -59,6 +61,11 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>4.0.1</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>

@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -12,19 +14,7 @@
 </head>
 <body>
 <div>
-    <nav>
-        <div class="nav-wrapper container">
-            <a class="brand-logo">Car Sales</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href='login'>Авторизация</a>
-                </li>
-                <li>
-                    <a href='registration'>Регистрация</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <c:import url="_menu.jsp"/>
     <div class="container row">
         <div class="col s6 offset-s3">
             <h4 class="header center-align">Авторизация</h4>

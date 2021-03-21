@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -7,36 +9,18 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="../css/main.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css" media="screen,projection"/>
     <title>Car Sales</title>
 </head>
 <body>
 <div>
-    <nav>
-        <div class="nav-wrapper container">
-            <a class="brand-logo">Car Sales</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href="index">Главная</a>
-                </li>
-                <li>
-                    <a href="profile">Профиль</a>
-                </li>
-                <li>
-                    <a href="announcement/add">Продать</a>
-                </li>
-                <li>
-                    <a href="logout">Выйти</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <c:import url="../_menu.jsp"/>
     <div class="container js-main-container main-container">
         <h3 class="center-align page-title"><span class="js-model">Lada</span>, <span class="js-price">300 000 &#x20bd;</span></h3>
         <div class="row card auto-form">
             <div class="col s7 image-container">
-                <img src="../img/test1.jpeg" width="500">
+                <img src="img/test1.jpeg" width="500">
             </div>
             <div class="col s5 property-container">
                 <div class="col s12">
@@ -71,7 +55,7 @@
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../js/materialize.min.js"></script>
-<script type="text/javascript" src="../js/view.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
 </body>
 </html>

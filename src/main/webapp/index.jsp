@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -13,25 +15,7 @@
 </head>
 <body>
 <div>
-    <nav>
-        <div class="nav-wrapper container">
-            <a class="brand-logo">Car Sales</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href="index">Главная</a>
-                </li>
-                <li>
-                    <a href="profile">Профиль</a>
-                </li>
-                <li>
-                    <a href="announcement/add">Продать</a>
-                </li>
-                <li>
-                    <a href="logout">Выйти</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <c:import url="_menu.jsp"/>
     <div class="container js-main-container main-container">
         <h3 class="center-align page-title">купить автомобиль</h3>
         <div class="row">
@@ -41,7 +25,10 @@
                         <img src="img/test1.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href="#">Lada</a></p>
+                        <p class="auto-link"><a href='
+                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                        '>Lada</a></p>
                         <p class="auto-price">300 000 &#x20bd;</p>
                         <p class="auto-properties">
                             188 500 км, седан, бензин
@@ -58,7 +45,10 @@
                         <img src="img/test3.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href="#">MINI</a></p>
+                        <p class="auto-link"><a href='
+                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                        '>MINI</a></p>
                         <p class="auto-price">1 100 000 &#x20bd;</p>
                         <p class="auto-properties">
                             23 700 км, хетчбэк, бензин
@@ -77,7 +67,10 @@
                         <img src="img/test5.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href="#">BMW</a></p>
+                        <p class="auto-link"><a href='
+                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                        '>BMW</a></p>
                         <p class="auto-price">3 550 000 &#x20bd;</p>
                         <p class="auto-properties">
                             12 300 км, седан, бензин
@@ -94,7 +87,10 @@
                         <img src="img/test4.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href="#">Lada</a></p>
+                        <p class="auto-link"><a href='
+                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                        '>Lada</a></p>
                         <p class="auto-price">800 000 &#x20bd;</p>
                         <p class="auto-properties">
                             88 935 км, седан, бензин
@@ -113,7 +109,10 @@
                         <img src="img/test2.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href="#">Honda</a></p>
+                        <p class="auto-link"><a href='
+                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                        '>Honda</a></p>
                         <p class="auto-price">450 000 &#x20bd;</p>
                         <p class="auto-properties">
                             64 841 км, хетчбэк, бензин
@@ -130,7 +129,10 @@
                         <img src="img/test6.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href="#">Toyota</a></p>
+                        <p class="auto-link"><a href='
+                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                        '>Toyota</a></p>
                         <p class="auto-price">1 940 000 &#x20bd;</p>
                         <p class="auto-properties">
                             188 935 км, седан, бензин

@@ -19,7 +19,9 @@
     <li>
         <a href="#intarface">Пользовательский интерфейс</a>
         <ul>
-            <li><a href="#reg_page">Регистрация/авторизация</a></li>
+            <li><a href="#main_page">Главная страница</a></li>
+            <li><a href="#car_info">Карточка товара</a></li>
+            <li><a href="#profile">Профиль пользователя</a></li>
             <li>
                 <a href="#announcement">Размещение объявления</a>
                 <ul>
@@ -27,9 +29,7 @@
                     <li><a href="#announcement_photo">Фотография</a></li>
                 </ul>
             </li>
-            <li><a href="#profile">Профиль пользователя</a></li>
-            <li><a href="#main_page">Главная страница</a></li>
-            <li><a href="#car_info">Карточка товара</a></li>
+            <li><a href="#reg_page">Регистрация/авторизация</a></li>
         </ul>
     </li>
     <li>
@@ -54,7 +54,7 @@
 <h4><a name="technologies">Технологии</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
 <ul>
     <li>Java 14</li>
-    <li>Java EE Servlets</li>
+    <li>Java EE Servlets, JSP, JSTL</li>
     <li>PostgreSQL, Hibernate, Liquibase</li>
     <li>JUnit, Mockito, PowerMock</li>
     <li>Maven, Tomcat</li>
@@ -123,41 +123,6 @@
 </ol>
 
 <h2><a name="intarface">Пользовательский интерфейс</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
-<h3><a name="reg_page">Регистрация/авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>
-    Всем пользователям доступна главная страница приложения со списком активных объявлений. 
-    Для того что бы был доступен полный функционал приложения (возможность добавлять объявления о продаже,
-    просмотр контактов владельцев), пользователь должен быть зарегистрирова/авторизован.
-</p>
-<p align="center">
-  <img src="images/2.png" height="400" title="регистрация">
-</p>
-
-<h3><a name="announcement">Размещение объявления</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<h4><a name="announcement_form">Форма</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
-<p>
-    Размещение объявления о продаже машины происходит в два этапа. На первом этапе пользователь
-    заполняет форму с информацией о машине.
-</p>
-<p align="center">
-  <img src="images/3.png" height="400" title="форма для подачи объявления">
-</p>
-
-<h4><a name="announcement_photo">Фото</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
-<p>
-    Следующим шагом пользовтелю будет предложен выбрать фотографию машины. Пропустить этот шаг нельзя.
-</p>
-<p align="center">
-  <img src="images/4.png" height="400" title="фотография машины">
-</p>
-
-<h3><a name="profile">Профиль пользователя</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>
-    В профиле пользователя собраны все его активные и завершенные объявления.
-</p>
-<p align="center">
-  <img src="images/6.png" height="400" title="профиль пользователя">
-</p>
 
 <h3><a name="main_page">Главная страница</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
 <p>
@@ -174,6 +139,42 @@
 </p>
 <p align="center">
   <img src="images/7.png" height="400" title="информация о машине">
+</p>
+
+<h3><a name="profile">Профиль пользователя</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    В профиле пользователя собраны все его активные и завершенные объявления.
+</p>
+<p align="center">
+  <img src="images/6.png" height="400" title="профиль пользователя">
+</p>
+
+<h3><a name="announcement">Размещение объявления</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<h4><a name="announcement_form">Форма</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
+<p>
+    Размещение объявления о продаже машины происходит в два этапа. На первом этапе пользователь
+    заполняет форму с информацией о машине.
+</p>
+<p align="center">
+  <img src="images/3.png" height="400" title="форма для подачи объявления">
+</p>
+
+<h4><a name="announcement_photo">Фотография</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
+<p>
+    Следующим шагом пользовтелю будет предложен выбрать фотографию машины. Пропустить этот шаг нельзя.
+</p>
+<p align="center">
+  <img src="images/4.png" height="400" title="фотография машины">
+</p>
+
+<h3><a name="reg_page">Регистрация/авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    Всем пользователям доступна главная страница приложения со списком активных объявлений. 
+    Для того что бы был доступен полный функционал приложения (возможность добавлять объявления о продаже,
+    просмотр контактов владельцев), пользователь должен быть зарегистрирова/авторизован.
+</p>
+<p align="center">
+  <img src="images/2.png" height="400" title="регистрация">
 </p>
 
 <h2><a name="links">Полезные ссылки</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
