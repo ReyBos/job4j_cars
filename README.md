@@ -19,10 +19,17 @@
     <li>
         <a href="#api">API</a>
         <ul>
+            <li><a href="#api_error">Ошибки</a></li>
             <li>
                 <a href="#api_user">Пользователи</a>
                 <ul>
+                    <li><a href="#api_registration">Регистрация</a></li>
+                </ul>
+                <ul>
                     <li><a href="#api_login">Авторизация</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#api_logout">Выход из системы</a></li>
                 </ul>
             </li>
         </ul>
@@ -139,6 +146,13 @@
     Также указанны сервлеты которые их обрабатывают.
 </p>
 
+<h3><a name="api_error">Ошибки</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    В приложении используются обычные коды ответа HTTP, чтобы указать успешность или неудачу запроса API.
+    В случае возникновения ошибки на стороне сервера при обработке запроса, возвращается 
+    <strong><code>500 Internal Server Error («внутренняя ошибка сервера»)</code></strong>
+</p>
+
 <h3><a name="api_user">Пользователи</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
 <dl>
   <dt>Сервлет</dt>
@@ -147,7 +161,40 @@
   </dd>
 </dl>
 
-<h4><a name="api_login">Авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a><h4>
+<h4><a name="api_registration">Регистрация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
+<p>Регистрация нового пользователя на сайте.</p>
+<dl>
+  <dt>Запрос</dt>
+  <dd>
+    <strong>POST</strong> <code>user?action=registration</code>
+  </dd>
+  <dt>Тело запроса</dt>
+  <dd>
+      <p>
+          <strong><code>name</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
+          имя пользователя
+      </p>
+      <p>
+          <strong><code>phone</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
+          телефон пользователя
+      </p>
+      <p>
+          <strong><code>login</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
+          логин пользователя
+      </p>
+      <p>
+          <strong><code>password</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
+          пароль пользователя
+      </p>
+  </dd>
+  <dt>Успешный ответ</dt>
+  <dd>
+    <code>HTTP Status 200</code>
+  </dd>
+</dl>
+
+<h4><a name="api_login">Авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
+<p>Вход на сайт раннее зарегистрированного пользователя</p>
 <dl>
   <dt>Запрос</dt>
   <dd>
@@ -155,22 +202,39 @@
   </dd>
   <dt>Тело запроса</dt>
   <dd>
-    <ul>
-        <li>
-            <p><code>login</code> Обязательный, Тип: String</p>
-            <p>логин ранее зарегистрированного пользователя</p>
-        </li>
-        <li>
-            <p><code>name</code> Обязательный, Тип: String</p>
-            <p>пароль пользователя</p>
-        </li>
-    </ul>
+      <p>
+          <strong><code>login</code></strong>&nbsp;&nbsp;обязательный <br>
+          логин пользователя
+      </p>
+      <p>
+          <strong><code>password</code></strong>&nbsp;&nbsp;обязательный <br>
+          пароль пользователя
+      </p>
   </dd>
   <dt>Успешный ответ</dt>
   <dd>
-    <strong>HTTP Status 200</strong>
+    <code>HTTP Status 200</code>
   </dd>
 </dl>
+
+<h4><a name="api_logout">Выход из системы</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
+<dl>
+  <dt>Запрос</dt>
+  <dd>
+    <strong>POST</strong> <code>user?action=logout</code>
+  </dd>
+  <dt>Тело запроса</dt>
+  <dd>
+      <p>
+          <strong><code>пустое</code></strong>
+      </p>
+  </dd>
+  <dt>Успешный ответ</dt>
+  <dd>
+    <code>HTTP Status 200</code>
+  </dd>
+</dl>
+
 
 <h2><a name="intarface">Пользовательский интерфейс</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
 
