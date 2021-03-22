@@ -2,20 +2,24 @@ $(document).ready(function () {
     $('.js-modal').modal();
 });
 
-$('.js-do-login').click(function () {
+$('.js-do-registration').click(function () {
     let login = $('.js-login').val();
     let password = $('.js-password').val();
-    if (login === "" || password === "") {
-        showModalError("Заполните все поля для авторизации!");
+    let phone = $('.js-phone').val();
+    let name = $('.js-name').val();
+    if (login === "" || password === "" || phone === "" || name === "") {
+        showModalError("Заполните все поля для регистрации!");
         return false;
     }
     let data = {
         "login": login,
-        "password": password
+        "password": password,
+        "phone": phone,
+        "name": name
     };
     $.ajax({
         type: "POST",
-        url: "user?action=login",
+        url: "user?action=registration",
         contentType: "application/json",
         data: JSON.stringify(data),
     }).done(function(data) {
@@ -23,7 +27,7 @@ $('.js-do-login').click(function () {
     }).fail(function(err) {
         let instance = M.Modal.getInstance($(".js-modal"));
         instance.open();
-        showModalError("Ошибка авторизации: неверный логин/пароль!");
+        showModalError("Ошибка регистрации, повторите запрос позднее");
     });
 });
 

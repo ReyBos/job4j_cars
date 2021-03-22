@@ -33,7 +33,8 @@ public class AuthFilter implements Filter {
         }
         if (
                 uri.endsWith("/login") || uri.endsWith("/registration") || uri.endsWith("/")
-                || uri.endsWith(".css") || uri.endsWith(".js")
+                || uri.endsWith("/user") || uri.endsWith(".css") || uri.endsWith(".js")
+                || uri.endsWith(".jpeg")
         ) {
             chain.doFilter(sreq, sresp);
             return;

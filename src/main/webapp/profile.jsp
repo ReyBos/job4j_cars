@@ -22,7 +22,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test3.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test3.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='<c:url value="/announcement?action=view&id=" />'>MINI</a></p>
@@ -39,7 +39,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test2.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test2.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='<c:url value="/announcement?action=view&id=" />'>Honda</a></p>

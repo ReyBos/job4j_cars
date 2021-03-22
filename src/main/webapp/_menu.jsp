@@ -20,14 +20,15 @@
                     <a href="<c:url value="/" />">Главная</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/profile" />profile">Профиль</a>
+                    <a href="<c:url value="/profile" />">Профиль</a>
                 </li>
                 <li>
                     <a href="<c:url value="/announcement?action=add" />">Продать</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/logout" />logout">Выйти</a>
+                    <a class="js-do-logout">Выйти</a>
                 </li>
+                <script type="text/javascript" src="<c:url value="/js" />/logout.js" defer></script>
             </c:if>
         </ul>
     </div>

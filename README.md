@@ -17,6 +17,17 @@
         <a href="#build">Сборка</a>
     </li>
     <li>
+        <a href="#api">API</a>
+        <ul>
+            <li>
+                <a href="#api_user">Пользователи</a>
+                <ul>
+                    <li><a href="#api_login">Авторизация</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
         <a href="#intarface">Пользовательский интерфейс</a>
         <ul>
             <li><a href="#main_page">Главная страница</a></li>
@@ -121,6 +132,45 @@
         <a href="http://localhost:8080/cars/">http://localhost:8080/cars/</a>
     </li>
 </ol>
+
+<h2><a name="api">API</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
+<p>
+    Для более быстрого знакомства с приложением собрал основные запросы и ответы системы. 
+    Также указанны сервлеты которые их обрабатывают.
+</p>
+
+<h3><a name="api_user">Пользователи</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<dl>
+  <dt>Сервлет</dt>
+  <dd>
+    <code>ru.reybos.servlet.logic.UserServlet</code>
+  </dd>
+</dl>
+
+<h4><a name="api_login">Авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a><h4>
+<dl>
+  <dt>Запрос</dt>
+  <dd>
+    <strong>POST</strong> <code>user?action=login</code>
+  </dd>
+  <dt>Тело запроса</dt>
+  <dd>
+    <ul>
+        <li>
+            <p><code>login</code> Обязательный, Тип: String</p>
+            <p>логин ранее зарегистрированного пользователя</p>
+        </li>
+        <li>
+            <p><code>name</code> Обязательный, Тип: String</p>
+            <p>пароль пользователя</p>
+        </li>
+    </ul>
+  </dd>
+  <dt>Успешный ответ</dt>
+  <dd>
+    <strong>HTTP Status 200</strong>
+  </dd>
+</dl>
 
 <h2><a name="intarface">Пользовательский интерфейс</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
 

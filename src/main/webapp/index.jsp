@@ -9,8 +9,8 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<c:url value="/css" />/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<c:url value="/css" />/main.css"  media="screen,projection"/>
     <title>Car Sales</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test1.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test1.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
@@ -42,7 +42,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test3.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test3.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
@@ -64,7 +64,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test5.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test5.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
@@ -84,7 +84,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test4.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test4.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
@@ -106,7 +106,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test2.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test2.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
@@ -126,7 +126,7 @@
             <div class="col s6">
                 <div class="card auto-card">
                     <p class="image-container">
-                        <img src="img/test6.jpeg" width="212">
+                        <img src="<c:url value="/img" />/test6.jpeg" width="212">
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
@@ -148,7 +148,7 @@
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="<c:url value="/js" />/materialize.min.js"></script>
+<script type="text/javascript" src="<c:url value="/js" />/index.js"></script>
 </body>
 </html>
