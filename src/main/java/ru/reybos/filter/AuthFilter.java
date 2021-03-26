@@ -18,29 +18,33 @@ public class AuthFilter implements Filter {
 
     }
 
+    /**
+     * если авторизованный пользователь хочет зайти на страницу регистрации и авторизации
+     * его перенаправляет на главную страницу
+     */
     @Override
     public void doFilter(ServletRequest sreq, ServletResponse sresp, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) sreq;
         HttpServletResponse resp = (HttpServletResponse) sresp;
         String uri = req.getRequestURI();
+        String query = req.getQueryString() == null ? "" : req.getQueryString();
         if (
-                (uri.endsWith("/login") || uri.endsWith("/registration"))
+                (query.endsWith("login") || query.endsWith("registration"))
                 && req.getSession().getAttribute("user") != null
         ) {
             resp.sendRedirect(req.getContextPath() + "/");
             return;
         }
         if (
-                uri.endsWith("/login") || uri.endsWith("/registration") || uri.endsWith("/")
-                || uri.endsWith("/user") || uri.endsWith(".css") || uri.endsWith(".js")
-                || uri.endsWith(".jpeg")
+                query.endsWith("login") || query.endsWith("registration") || uri.endsWith("/")
+                || uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".jpeg")
         ) {
             chain.doFilter(sreq, sresp);
             return;
         }
         if (req.getSession().getAttribute("user") == null) {
-            resp.sendRedirect(req.getContextPath() + "/login");
+            resp.sendRedirect(req.getContextPath() + "/user?page=login");
             return;
         }
         chain.doFilter(sreq, sresp);

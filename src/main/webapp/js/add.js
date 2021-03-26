@@ -1,9 +1,39 @@
-$(document).ready(function(){
-    $('select').formSelect();
+$(document).ready(function() {
+    loadFieldsData();
     $('.js-modal').modal();
 });
 
+function loadFieldsData() {
+    $.ajax({
+        type: "POST",
+        url: "announcement?action=get-form-fields"
+    }).done(function(data) {
+        showSelect(data.fields.cities, ".js-city");
+        showSelect(data.fields.carModels, ".js-model");
+        showSelect(data.fields.carBodyTypes, ".js-body_type");
+        showSelect(data.fields.carEngineTypes, ".js-engine");
+        showSelect(data.fields.carTransmissionBoxTypes, ".js-transmission_box");
+        $('.js-announcement-type').val(data.fields.announcementType.id);
+        $('.js-user').val(data.fields.user.id);
+
+        $('select').formSelect();
+        $('.js-add-next').prop("disabled", false);
+    }).fail(function(err) {
+        let instance = M.Modal.getInstance($(".js-modal"));
+        instance.open();
+        showModalError("Ошибка на стороне сервера, перезагрузите страницу");
+    });
+}
+
+function showSelect(options, selectClass) {
+    options.forEach(function (option) {
+        let str = '<option value="' + option.id + '">' + option.name + '</option>';
+        $(selectClass).append(str);
+    });
+}
+
 $('.js-add-next').click(function () {
+    let user = $(".js-user").val();
     let price = $(".js-price").val();
     let city = $(".js-city").val();
     let announcementType = $(".js-announcement-type").val();
@@ -28,6 +58,7 @@ $('.js-add-next').click(function () {
         "isSold": false,
         "city": {"id": city},
         "announcementType": {"id": announcementType},
+        "user": {"id": user},
         "car": {
             "isNew": JSON.parse(isNew),
             "mileage": mileage,
@@ -39,9 +70,18 @@ $('.js-add-next').click(function () {
             "carTransmissionBoxType": {"id": transmissionBoxType}
         }
     };
-    $(".js-auto-info-container").toggle();
-    $(".js-photo-container").toggle();
-    console.log(announcement);
+    $.ajax({
+        type: "POST",
+        url: "announcement?action=save",
+        contentType: "application/json",
+        data: JSON.stringify(announcement),
+    }).done(function(response) {
+        $('.js-announcement-id').val(response.id);
+        $(".js-auto-info-container").toggle();
+        $(".js-photo-container").toggle();
+    }).fail(function(err) {
+        showModalError("Ошибка при сохранении объявления, перезагрузите страницу или повторите запрос позднее.");
+    });
 });
 
 function showModalError(msg) {

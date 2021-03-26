@@ -9,8 +9,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.reybos.model.City;
 import ru.reybos.model.User;
+import ru.reybos.model.announcement.Announcement;
+import ru.reybos.model.announcement.AnnouncementType;
+import ru.reybos.model.car.*;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class HbmStore implements Store, AutoCloseable {
@@ -30,7 +35,7 @@ public class HbmStore implements Store, AutoCloseable {
     @Override
     public User findUserByLogin(String login) {
         return tx(session -> {
-            String sql = "FROM ru.reybos.model.User WHERE login=:login";
+            String sql = "FROM User WHERE login=:login";
             final Query<User> query = session.createQuery(sql);
             query.setParameter("login", login);
             return query.uniqueResult();
@@ -38,7 +43,7 @@ public class HbmStore implements Store, AutoCloseable {
     }
 
     @Override
-    public User save(User user) {
+    public void save(User user) {
         try {
             tx(session -> {
                 session.save(user);
@@ -47,14 +52,128 @@ public class HbmStore implements Store, AutoCloseable {
         } catch (Exception e) {
             LOG.error("Ошибка сохранения нового пользователя");
         }
-        return user;
     }
 
     @Override
-    public User delete(User user) {
-        return tx(session -> {
+    public void delete(User user) {
+        tx(session -> {
             session.delete(user);
             return user;
+        });
+    }
+
+    @Override
+    public List<City> findAllCites() {
+        return tx(session -> {
+            String sql = "FROM City city ORDER BY city.name ";
+            final Query query = session.createQuery(sql);
+            return query.list();
+        });
+    }
+
+    @Override
+    public List<CarModel> findAllCarModel() {
+        return tx(session -> {
+            String sql = "FROM CarModel carModel ORDER BY carModel.name ";
+            final Query query = session.createQuery(sql);
+            return query.list();
+        });
+    }
+
+    @Override
+    public List<CarBodyType> findAllCarBodyType() {
+        return tx(session -> {
+            String sql = "FROM CarBodyType body ORDER BY body.name ";
+            final Query query = session.createQuery(sql);
+            return query.list();
+        });
+    }
+
+    @Override
+    public List<CarEngineType> findAllCarEngineType() {
+        return tx(session -> {
+            String sql = "FROM CarEngineType engine ORDER BY engine.name ";
+            final Query query = session.createQuery(sql);
+            return query.list();
+        });
+    }
+
+    @Override
+    public List<CarTransmissionBoxType> findAllCarTransmissionBoxType() {
+        return tx(session -> {
+            String sql = "FROM CarTransmissionBoxType transmission "
+                    + "ORDER BY transmission.name";
+            final Query query = session.createQuery(sql);
+            return query.list();
+        });
+    }
+
+    @Override
+    public List<AnnouncementType> findAllAnnouncementType() {
+        return tx(session -> {
+            String sql = "FROM AnnouncementType";
+            final Query query = session.createQuery(sql);
+            return query.list();
+        });
+    }
+
+    @Override
+    public Announcement findAnnouncementById(int id) {
+        return tx(session -> {
+            String sql = "SELECT announcement "
+                    + "FROM Announcement announcement "
+                    + "LEFT JOIN FETCH announcement.user "
+                    + "LEFT JOIN FETCH announcement.city "
+                    + "LEFT JOIN FETCH announcement.announcementType "
+                    + "LEFT JOIN FETCH announcement.car car "
+                    + "LEFT JOIN FETCH car.carModel "
+                    + "LEFT JOIN FETCH car.carPhotos "
+                    + "LEFT JOIN FETCH car.carBodyType "
+                    + "LEFT JOIN FETCH car.carEngineType "
+                    + "LEFT JOIN FETCH car.carTransmissionBoxType "
+                    + "WHERE announcement.id = :aid";
+            final Query query = session.createQuery(sql);
+            query.setParameter("aid", id);
+            Announcement announcement = (Announcement) query.uniqueResult();
+            return announcement;
+        });
+    }
+
+    @Override
+    public void save(Announcement announcement) {
+        try {
+            tx(session -> {
+                User user = session.get(User.class, announcement.getUser().getId());
+                AnnouncementType announcementType = session.get(
+                        AnnouncementType.class, announcement.getAnnouncementType().getId()
+                );
+                City city = session.get(City.class, announcement.getCity().getId());
+                user.addAnnouncement(announcement);
+                announcementType.addAnnouncement(announcement);
+                city.addAnnouncement(announcement);
+                announcement.getCar().setAnnouncement(announcement);
+                return true;
+            });
+        } catch (Exception e) {
+            LOG.error("Ошибка сохранения нового объявления");
+        }
+    }
+
+    @Override
+    public void update(Announcement announcement) {
+        tx(session -> {
+            session.update(announcement);
+            return true;
+        });
+    }
+
+    @Override
+    public void saveCarPhoto(CarPhoto carPhoto, int announcementId) {
+        final Announcement announcement = findAnnouncementById(announcementId);
+        tx(session -> {
+            announcement.getCar().addCarPhoto(carPhoto);
+            session.save(announcement);
+            return true;
         });
     }
 

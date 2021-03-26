@@ -17,6 +17,22 @@
         <a href="#build">Сборка</a>
     </li>
     <li>
+        <a href="#intarface">Пользовательский интерфейс</a>
+        <ul>
+            <li><a href="#main_page">Главная страница</a></li>
+            <li><a href="#car_info">Карточка товара</a></li>
+            <li><a href="#profile">Профиль пользователя</a></li>
+            <li>
+                <a href="#announcement">Размещение объявления</a>
+                <ul>
+                    <li><a href="#announcement_form">Форма</a></li>
+                    <li><a href="#announcement_photo">Фотография</a></li>
+                </ul>
+            </li>
+            <li><a href="#reg_page">Регистрация/авторизация</a></li>
+        </ul>
+    </li>
+    <li>
         <a href="#api">API</a>
         <ul>
             <li><a href="#api_error">Ошибки</a></li>
@@ -32,22 +48,6 @@
                     <li><a href="#api_logout">Выход из системы</a></li>
                 </ul>
             </li>
-        </ul>
-    </li>
-    <li>
-        <a href="#intarface">Пользовательский интерфейс</a>
-        <ul>
-            <li><a href="#main_page">Главная страница</a></li>
-            <li><a href="#car_info">Карточка товара</a></li>
-            <li><a href="#profile">Профиль пользователя</a></li>
-            <li>
-                <a href="#announcement">Размещение объявления</a>
-                <ul>
-                    <li><a href="#announcement_form">Форма</a></li>
-                    <li><a href="#announcement_photo">Фотография</a></li>
-                </ul>
-            </li>
-            <li><a href="#reg_page">Регистрация/авторизация</a></li>
         </ul>
     </li>
     <li>
@@ -140,6 +140,61 @@
     </li>
 </ol>
 
+<h2><a name="intarface">Пользовательский интерфейс</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
+
+<h3><a name="main_page">Главная страница</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    На главной странице собраны все активные объявления с основной информацией.
+</p>
+<p align="center">
+  <img src="images/5.png" height="400" title="главная страница">
+</p>
+
+<h3><a name="car_info">Карточка товара</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    Для каждого объявления можно посмотреть всю доступную информацию о нем, а также контакты продавца.
+    Создатель объявления может снять его с продажи в этом разделе.
+</p>
+<p align="center">
+  <img src="images/7.png" height="400" title="информация о машине">
+</p>
+
+<h3><a name="profile">Профиль пользователя</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    В профиле пользователя собраны все его активные и завершенные объявления.
+</p>
+<p align="center">
+  <img src="images/6.png" height="400" title="профиль пользователя">
+</p>
+
+<h3><a name="announcement">Размещение объявления</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<h4><a name="announcement_form">Форма</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
+<p>
+    Размещение объявления о продаже машины происходит в два этапа. На первом этапе пользователь
+    заполняет форму с информацией о машине.
+</p>
+<p align="center">
+  <img src="images/3.png" height="400" title="форма для подачи объявления">
+</p>
+
+<h4><a name="announcement_photo">Фотография</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
+<p>
+    Следующим шагом пользовтелю будет предложено выбрать фотографию машины.
+</p>
+<p align="center">
+  <img src="images/4.png" height="400" title="фотография машины">
+</p>
+
+<h3><a name="reg_page">Регистрация/авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    Всем пользователям доступна главная страница приложения со списком активных объявлений. 
+    Для того что бы был доступен полный функционал приложения (возможность добавлять объявления о продаже,
+    просмотр контактов владельцев), пользователь должен быть зарегистрирова/авторизован.
+</p>
+<p align="center">
+  <img src="images/2.png" height="400" title="регистрация">
+</p>
+
 <h2><a name="api">API</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
 <p>
     Для более быстрого знакомства с приложением собрал основные запросы и ответы системы. 
@@ -157,7 +212,7 @@
 <dl>
   <dt>Сервлет</dt>
   <dd>
-    <code>ru.reybos.servlet.logic.UserServlet</code>
+    <code>ru.reybos.servlet.UserServlet</code>
   </dd>
 </dl>
 
@@ -235,68 +290,28 @@
   </dd>
 </dl>
 
-
-<h2><a name="intarface">Пользовательский интерфейс</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
-
-<h3><a name="main_page">Главная страница</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>
-    На главной странице собраны все активные объявления с основной информацией.
-</p>
-<p align="center">
-  <img src="images/5.png" height="400" title="главная страница">
-</p>
-
-<h3><a name="car_info">Карточка товара</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>
-    Для каждого объявления можно посмотреть всю доступную информацию о нем, а также контакты продавца.
-    Создатель объявления может снять его с продажи в этом разделе.
-</p>
-<p align="center">
-  <img src="images/7.png" height="400" title="информация о машине">
-</p>
-
-<h3><a name="profile">Профиль пользователя</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>
-    В профиле пользователя собраны все его активные и завершенные объявления.
-</p>
-<p align="center">
-  <img src="images/6.png" height="400" title="профиль пользователя">
-</p>
-
-<h3><a name="announcement">Размещение объявления</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<h4><a name="announcement_form">Форма</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
-<p>
-    Размещение объявления о продаже машины происходит в два этапа. На первом этапе пользователь
-    заполняет форму с информацией о машине.
-</p>
-<p align="center">
-  <img src="images/3.png" height="400" title="форма для подачи объявления">
-</p>
-
-<h4><a name="announcement_photo">Фотография</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
-<p>
-    Следующим шагом пользовтелю будет предложено выбрать фотографию машины. Пропустить этот шаг нельзя.
-</p>
-<p align="center">
-  <img src="images/4.png" height="400" title="фотография машины">
-</p>
-
-<h3><a name="reg_page">Регистрация/авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>
-    Всем пользователям доступна главная страница приложения со списком активных объявлений. 
-    Для того что бы был доступен полный функционал приложения (возможность добавлять объявления о продаже,
-    просмотр контактов владельцев), пользователь должен быть зарегистрирова/авторизован.
-</p>
-<p align="center">
-  <img src="images/2.png" height="400" title="регистрация">
-</p>
-
 <h2><a name="links">Полезные ссылки</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
 <p>Ресурсы которые были полезны при создании проекта</p>
 <ul>
     <li>
+        <strong><a href="https://habr.com/ru/company/naumen/blog/228279/">link</a></strong>
+        - Gson пользовательская сериализация объектов
+    </li>
+    <li>
         <strong><a href="https://ru.stackoverflow.com/questions/381936/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%82%D1%8C-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-ajax-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D1%84%D0%BE%D1%80%D0%BC%D1%8B-file">link</a></strong>
         - ajax отправка файла из формы
+    </li>
+    <li>
+        <strong><a href="https://dba.stackexchange.com/questions/94887/what-is-the-impact-of-lc-ctype-on-a-postgresql-database">link</a></strong>
+        - проблемы с сортировкой русских слов в postgresql на macos (решение для вновь создаваемой бд)
+    </li>
+    <li>
+        <strong><a href="https://evtuhovich.ru/blog/2012/07/14/collate-osx-postgres/">link</a></strong>
+        - проблемы с сортировкой русских слов в postgresql на macos (глобальное решение, но не попробовал пока)
+    </li>
+    <li>
+        <strong><a href="https://simply.name/ru/pg-lc-collate.html">link</a></strong>
+        - проблемы с сортировкой русских слов в postgresql на macos (решение на уровне запроса)
     </li>
     <!--<li>
         <strong><a href="">link</a></strong>

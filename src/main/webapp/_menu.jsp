@@ -9,10 +9,10 @@
                     <a href='<c:url value="/" />'>Главная</a>
                 </li>
                 <li>
-                    <a href='<c:url value="/registration" />'>Регистрация</a>
+                    <a href='<c:url value="/user?page=registration" />'>Регистрация</a>
                 </li>
                 <li>
-                    <a href='<c:url value="/login" />'>Войти</a>
+                    <a href='<c:url value="/user?page=login" />'>Войти</a>
                 </li>
             </c:if>
             <c:if test="${not empty user}">
@@ -20,10 +20,10 @@
                     <a href="<c:url value="/" />">Главная</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/profile" />">Профиль</a>
+                    <a href="<c:url value="/user?page=profile" />">Профиль</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/announcement?action=add" />">Продать</a>
+                    <a href="<c:url value="/announcement?page=add" />">Продать</a>
                 </li>
                 <li>
                     <a class="js-do-logout">Выйти</a>

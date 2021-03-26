@@ -41,12 +41,13 @@ public class UserService {
             boolean rsl = true;
             try {
                 User userFromForm = new Gson().fromJson(request.getReader(), User.class);
-                User userFromDb = store.save(userFromForm);
-                if (userFromDb.getId() == 0) {
+                store.save(userFromForm);
+                if (userFromForm.getId() == 0) {
                     throw new IllegalStateException("Ошибка сохранения пользователя");
                 }
+                userFromForm.clearPassword();
                 HttpSession sc = request.getSession();
-                sc.setAttribute("user", userFromDb);
+                sc.setAttribute("user", userFromForm);
             } catch (Exception e) {
                 LOG.error("Ошибка регистрации", e);
                 rsl = false;

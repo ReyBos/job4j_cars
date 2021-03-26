@@ -44,6 +44,10 @@ public class User {
         announcement.setUser(this);
     }
 
+    public void clearPassword() {
+        this.setPassword("");
+    }
+
     public int getId() {
         return id;
     }

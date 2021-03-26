@@ -25,7 +25,7 @@
                         <img src="<c:url value="/img" />/test3.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href='<c:url value="/announcement?action=view&id=" />'>MINI</a></p>
+                        <p class="auto-link"><a href='<c:url value="/announcement?page=view&id=" />'>MINI</a></p>
                         <p class="auto-price">1 100 000 &#x20bd;</p>
                         <p class="auto-properties">
                             23 700 км, хетчбэк, бензин
@@ -42,7 +42,7 @@
                         <img src="<c:url value="/img" />/test2.jpeg" width="212">
                     </p>
                     <div class="auto-description">
-                        <p class="auto-link"><a href='<c:url value="/announcement?action=view&id=" />'>Honda</a></p>
+                        <p class="auto-link"><a href='<c:url value="/announcement?page=view&id=" />'>Honda</a></p>
                         <p class="auto-price">450 000 &#x20bd;</p>
                         <p class="auto-properties">
                             64 841 км, хетчбэк, бензин

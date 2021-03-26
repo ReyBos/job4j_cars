@@ -1,4 +1,4 @@
-package ru.reybos.servlet.logic;
+package ru.reybos.servlet;
 
 import com.google.gson.GsonBuilder;
 import org.junit.After;

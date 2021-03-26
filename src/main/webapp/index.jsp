@@ -26,8 +26,8 @@
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
-                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
-                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                            <c:if test="${empty user}"><c:url value="/user?page=login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?page=view&id=" /></c:if>
                         '>Lada</a></p>
                         <p class="auto-price">300 000 &#x20bd;</p>
                         <p class="auto-properties">
@@ -46,8 +46,8 @@
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
-                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
-                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                            <c:if test="${empty user}"><c:url value="/user?page=login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?page=view&id=" /></c:if>
                         '>MINI</a></p>
                         <p class="auto-price">1 100 000 &#x20bd;</p>
                         <p class="auto-properties">
@@ -68,8 +68,8 @@
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
-                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
-                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                            <c:if test="${empty user}"><c:url value="/user?page=login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?page=view&id=" /></c:if>
                         '>BMW</a></p>
                         <p class="auto-price">3 550 000 &#x20bd;</p>
                         <p class="auto-properties">
@@ -88,8 +88,8 @@
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
-                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
-                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                            <c:if test="${empty user}"><c:url value="/user?page=login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?page=view&id=" /></c:if>
                         '>Lada</a></p>
                         <p class="auto-price">800 000 &#x20bd;</p>
                         <p class="auto-properties">
@@ -110,8 +110,8 @@
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
-                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
-                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                            <c:if test="${empty user}"><c:url value="/user?page=login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?page=view&id=" /></c:if>
                         '>Honda</a></p>
                         <p class="auto-price">450 000 &#x20bd;</p>
                         <p class="auto-properties">
@@ -130,8 +130,8 @@
                     </p>
                     <div class="auto-description">
                         <p class="auto-link"><a href='
-                            <c:if test="${empty user}"><c:url value="/login" /></c:if>
-                            <c:if test="${not empty user}"><c:url value="/announcement?action=view&id=" /></c:if>
+                            <c:if test="${empty user}"><c:url value="/user?page=login" /></c:if>
+                            <c:if test="${not empty user}"><c:url value="/announcement?page=view&id=" /></c:if>
                         '>Toyota</a></p>
                         <p class="auto-price">1 940 000 &#x20bd;</p>
                         <p class="auto-properties">
