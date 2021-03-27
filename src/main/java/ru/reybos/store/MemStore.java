@@ -102,6 +102,11 @@ public class MemStore implements Store {
         return null;
     }
 
+    @Override
+    public List<Announcement> findAnnouncementByUserId(int userId) {
+        return null;
+    }
+
     public void save(City city) {
         city.setId(cityIds++);
         cities.add(city);

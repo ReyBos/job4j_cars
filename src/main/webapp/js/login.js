@@ -26,9 +26,3 @@ $('.js-do-login').click(function () {
         showModalError("Ошибка авторизации: неверный логин/пароль!");
     });
 });
-
-function showModalError(msg) {
-    $(".js-modal-msg").text(msg);
-    let instance = M.Modal.getInstance($(".js-modal"));
-    instance.open();
-}

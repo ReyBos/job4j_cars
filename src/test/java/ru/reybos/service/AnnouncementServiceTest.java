@@ -176,8 +176,6 @@ public class AnnouncementServiceTest {
     public void whenGetFields() {
         AnnouncementService service = AnnouncementService.getInstance();
         when(request.getParameter("action")).thenReturn("get-form-fields");
-        when(request.getParameter("id")).thenReturn(null);
-        when(request.getParameter("fields")).thenReturn("1");
         when(request.getSession()).thenReturn(session);
         when(session.getAttribute("user")).thenReturn(user);
         Optional<String> rsl = service.execute(request);
@@ -310,5 +308,17 @@ public class AnnouncementServiceTest {
 
         Optional<String> rsl = service.execute(request);
         assertFalse(rsl.isPresent());
+    }
+
+    @Test
+    public void whenGetUserAnnouncementThenSuccess() {
+        AnnouncementService service = AnnouncementService.getInstance();
+        when(request.getParameter("action")).thenReturn("get-user-announcement");
+        when(request.getParameter("id")).thenReturn(String.valueOf(user.getId()));
+        Optional<String> rsl = service.execute(request);
+        assertTrue(rsl.isPresent());
+
+        List<Announcement> expected = List.of(announcement);
+        assertThat(rsl.get(), is(GSON.toJson(expected)));
     }
 }

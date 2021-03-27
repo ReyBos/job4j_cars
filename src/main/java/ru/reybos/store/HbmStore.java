@@ -140,6 +140,27 @@ public class HbmStore implements Store, AutoCloseable {
     }
 
     @Override
+    public List<Announcement> findAnnouncementByUserId(int userId) {
+        return tx(session -> {
+            String sql = "SELECT DISTINCT announcement "
+                    + "FROM Announcement announcement "
+                    + "LEFT JOIN FETCH announcement.user "
+                    + "LEFT JOIN FETCH announcement.city "
+                    + "LEFT JOIN FETCH announcement.announcementType "
+                    + "LEFT JOIN FETCH announcement.car car "
+                    + "LEFT JOIN FETCH car.carModel "
+                    + "LEFT JOIN FETCH car.carPhotos "
+                    + "LEFT JOIN FETCH car.carBodyType "
+                    + "LEFT JOIN FETCH car.carEngineType "
+                    + "LEFT JOIN FETCH car.carTransmissionBoxType "
+                    + "WHERE announcement.user.id = :uId";
+            final Query query = session.createQuery(sql);
+            query.setParameter("uId", userId);
+            return query.list();
+        });
+    }
+
+    @Override
     public void save(Announcement announcement) {
         try {
             tx(session -> {
@@ -172,7 +193,7 @@ public class HbmStore implements Store, AutoCloseable {
         final Announcement announcement = findAnnouncementById(announcementId);
         tx(session -> {
             announcement.getCar().addCarPhoto(carPhoto);
-            session.save(announcement);
+            session.update(announcement);
             return true;
         });
     }

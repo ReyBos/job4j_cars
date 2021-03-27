@@ -9,8 +9,8 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<c:url value="/css" />/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<c:url value="/css" />/main.css"  media="screen,projection"/>
     <title>Car Sales</title>
 </head>
 <body>
@@ -18,47 +18,23 @@
     <c:import url="_menu.jsp"/>
     <div class="container js-main-container main-container">
         <h3 class="center-align page-title">ваши объявления</h3>
-        <div class="row">
-            <div class="col s6">
-                <div class="card auto-card">
-                    <p class="image-container">
-                        <img src="<c:url value="/img" />/test3.jpeg" width="212">
-                    </p>
-                    <div class="auto-description">
-                        <p class="auto-link"><a href='<c:url value="/announcement?page=view&id=" />'>MINI</a></p>
-                        <p class="auto-price">1 100 000 &#x20bd;</p>
-                        <p class="auto-properties">
-                            23 700 км, хетчбэк, бензин
-                        </p>
-                        <p class="auto-city">
-                            Санкт-Петербург
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="card auto-card">
-                    <p class="image-container">
-                        <img src="<c:url value="/img" />/test2.jpeg" width="212">
-                    </p>
-                    <div class="auto-description">
-                        <p class="auto-link"><a href='<c:url value="/announcement?page=view&id=" />'>Honda</a></p>
-                        <p class="auto-price">450 000 &#x20bd;</p>
-                        <p class="auto-properties">
-                            64 841 км, хетчбэк, бензин
-                        </p>
-                        <p class="auto-city">
-                            Москва
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="js-user-announcement">
+            <div class="row center-align">Вы не подали еще ни одного объявления!</div>
+        </div>
+    </div>
+    <div id="modal1" class="modal js-modal modal-custom">
+        <div class="modal-content js-modal-content">
+            <p class="js-modal-msg center-align"></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
         </div>
     </div>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="<c:url value="/js" />/materialize.min.js"></script>
+<script type="text/javascript" src="<c:url value="/js" />/functions.js"></script>
+<script type="text/javascript" src="<c:url value="/js" />/profile.js"></script>
 </body>
 </html>

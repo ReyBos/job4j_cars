@@ -17,9 +17,3 @@ $('.js-is_sold').change(function () {
         showModalError("Ошибка при обновлении объявления, перезагрузите страницу или повторите запрос позднее.");
     });
 });
-
-function showModalError(msg) {
-    $(".js-modal-msg").text(msg);
-    let instance = M.Modal.getInstance($(".js-modal"));
-    instance.open();
-}

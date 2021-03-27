@@ -20,7 +20,7 @@
                     <a href="<c:url value="/" />">Главная</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/user?page=profile" />">Профиль</a>
+                    <a href="<c:url value="/user?page=profile&id=${user.id}" />">Профиль</a>
                 </li>
                 <li>
                     <a href="<c:url value="/announcement?page=add" />">Продать</a>

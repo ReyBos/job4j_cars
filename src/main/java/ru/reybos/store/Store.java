@@ -29,6 +29,8 @@ public interface Store {
 
     Announcement findAnnouncementById(int id);
 
+    List<Announcement> findAnnouncementByUserId(int userId);
+
     void save(Announcement announcement);
 
     void update(Announcement announcement);

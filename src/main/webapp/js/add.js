@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    loadFieldsData();
     $('.js-modal').modal();
+    loadFieldsData();
 });
 
 function loadFieldsData() {
@@ -22,13 +22,6 @@ function loadFieldsData() {
         let instance = M.Modal.getInstance($(".js-modal"));
         instance.open();
         showModalError("Ошибка на стороне сервера, перезагрузите страницу");
-    });
-}
-
-function showSelect(options, selectClass) {
-    options.forEach(function (option) {
-        let str = '<option value="' + option.id + '">' + option.name + '</option>';
-        $(selectClass).append(str);
     });
 }
 
@@ -83,9 +76,3 @@ $('.js-add-next').click(function () {
         showModalError("Ошибка при сохранении объявления, перезагрузите страницу или повторите запрос позднее.");
     });
 });
-
-function showModalError(msg) {
-    $(".js-modal-msg").text(msg);
-    let instance = M.Modal.getInstance($(".js-modal"));
-    instance.open();
-}

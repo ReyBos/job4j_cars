@@ -23,6 +23,9 @@
                 <c:forEach var="carPhoto" items="${announcement.car.carPhotos}">
                     <img src="<c:url value='/announcement/photo?name=${carPhoto.id}'/>" width="500">
                 </c:forEach>
+                <c:if test="${empty announcement.car.carPhotos}">
+                    <img src="img/no-image.jpeg" width="500">
+                </c:if>
             </div>
             <div class="col s5 property-container">
                 <div class="col s12">
@@ -79,6 +82,7 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="<c:url value="/js" />/materialize.min.js"></script>
+<script type="text/javascript" src="<c:url value="/js" />/functions.js"></script>
 <script type="text/javascript" src="<c:url value="/js" />/view.js"></script>
 </body>
 </html>
