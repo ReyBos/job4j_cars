@@ -110,7 +110,7 @@ public class AnnouncementServiceTest {
         carTransmissionBoxType1.addCar(car);
 
         announcementType = AnnouncementType.of("транспорт");
-        announcement = Announcement.of(1000, false);
+        announcement = Announcement.of(1000, true);
         announcement.addCar(car);
         city1.addAnnouncement(announcement);
         user = User.of("name", "login", "pass", "12345");
@@ -260,6 +260,15 @@ public class AnnouncementServiceTest {
         assertThat(announcementFromDb.getCity(), is(CITIES.get(0)));
         assertThat(announcementFromDb.getUser(), is(user));
         assertNotNull(announcementFromDb.getCar());
+
+        try (Session session = SF.openSession()) {
+            session.beginTransaction();
+            session.delete(announcementFromDb);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            LOG.error("Ошибка", e);
+            fail("Что-то пошло не так");
+        }
     }
 
     @Test
@@ -315,17 +324,6 @@ public class AnnouncementServiceTest {
         AnnouncementService service = AnnouncementService.getInstance();
         when(request.getParameter("action")).thenReturn("get-user-announcement");
         when(request.getParameter("id")).thenReturn(String.valueOf(user.getId()));
-        Optional<String> rsl = service.execute(request);
-        assertTrue(rsl.isPresent());
-
-        List<Announcement> expected = List.of(announcement);
-        assertThat(rsl.get(), is(GSON.toJson(expected)));
-    }
-
-    @Test
-    public void whenGetAllAnnouncementThenSuccess() {
-        AnnouncementService service = AnnouncementService.getInstance();
-        when(request.getParameter("action")).thenReturn("get-all-announcement");
         Optional<String> rsl = service.execute(request);
         assertTrue(rsl.isPresent());
 

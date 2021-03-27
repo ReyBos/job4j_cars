@@ -71,6 +71,40 @@
 
 <h4><a name="structure">Структура</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
 <pre><code>.
+|-db
+|---scripts
+|-images
+|-src
+|---main
+|-----java
+|-------ru
+|---------reybos
+|-----------filter
+|-----------helper
+|-------------serialize
+|-----------model
+|-------------announcement
+|-------------car
+|-----------service
+|-----------servlet
+|-----------store
+|-----resources
+|-----webapp
+|-------WEB-INF
+|-------announcement
+|-------css
+|-------img
+|-------js
+|---test
+|-----java
+|-------ru
+|---------reybos
+|-----------model
+|-------------announcement
+|-----------service
+|-----------servlet
+|-----------store
+└-----resources
 </code></pre>
 
 <h4><a name="scheme">Схема БД</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h4>
@@ -513,6 +547,73 @@
     <details>
         <summary>
             <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/announcement?action=get-user-announcement&id={userId}</strong> &nbsp;&nbsp; получить объявления пользователя
+        </summary>
+        <p></p>
+        <table>
+            <tbody>
+                <tr><th colspan=2><strong>Параметры</strong></th></tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        без параметров
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr><th colspan=2><strong>Ответ</strong></th></tr>
+                <tr>
+                    <td>Код</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>200</td>
+                    <td rowspan=2>
+
+```json
+[
+    {
+        "id": 1,
+        "created": "27-03-2021 20:02:16",
+        "price": 12345,
+        "isSold": false,
+        "user": {
+            "id": 1, 
+            "name": "Андрей", 
+            "login": "test", 
+            "phone": "0987654321"
+        },
+        "city": {"id": 4, "name": "Казань"},
+        "announcementType": {"id": 1, "name": "транспорт"},
+        "car": {
+            "id": 1,
+            "isNew": false,
+            "mileage": 13234,
+            "isBroken": false,
+            "description": "описание",
+            "carModel": {"id": 1, "name": "BMW"},
+            "carBodyType": {"id": 1, "name": "Седан"},
+            "carEngineType": {"id": 1,"name": "Бензин"},
+            "carTransmissionBoxType": {"id": 2,"name": "Автомат"},
+            "carPhotos": [{"id": 1}]
+        }
+    }
+]
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>500</td>
+                    <td>ошибка при выполнении запроса</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+    <details>
+        <summary>
+            <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/announcement?action=get-all-announcement</strong> &nbsp;&nbsp; получить все активные объявления (статус не продано)
         </summary>
         <p></p>
         <table>
