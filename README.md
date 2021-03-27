@@ -17,6 +17,13 @@
         <a href="#build">Сборка</a>
     </li>
     <li>
+        <a href="#api">API</a>
+        <ul>
+            <li><a href="#api_user">user</a></li>
+            <li><a href="#api_announcement">announcement</a></li>
+        </ul>
+    </li>
+    <li>
         <a href="#intarface">Пользовательский интерфейс</a>
         <ul>
             <li><a href="#main_page">Главная страница</a></li>
@@ -30,24 +37,6 @@
                 </ul>
             </li>
             <li><a href="#reg_page">Регистрация/авторизация</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#api">API</a>
-        <ul>
-            <li><a href="#api_error">Ошибки</a></li>
-            <li>
-                <a href="#api_user">Пользователи</a>
-                <ul>
-                    <li><a href="#api_registration">Регистрация</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#api_login">Авторизация</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#api_logout">Выход из системы</a></li>
-                </ul>
-            </li>
         </ul>
     </li>
     <li>
@@ -140,6 +129,389 @@
     </li>
 </ol>
 
+<h2><a name="api">API</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
+<p>
+    Для более быстрого знакомства с приложением собраны основные запросы. 
+    Также указанны сервлеты которые их обрабатывают.
+</p>
+
+<h3><a name="api_user">user</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    Все операции с пользователем<br>
+    <code>ru.reybos.servlet.UserServlet</code>
+</p>
+<div>
+    <details>
+        <summary>
+            <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/user?action=registration</strong> &nbsp;&nbsp; регистрация пользователя
+        </summary>
+        <p></p>
+        <table>
+            <tbody>
+                <tr><th colspan=2><strong>Параметры</strong></th></tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>
+                        <strong>тело запроса</strong> <sup>* required</sup><br>
+                        <sup>object</sup>
+                    </td>
+                    <td rowspan=2>
+                        
+```json
+{
+    "login": "login",
+    "password": "password",
+    "phone": "phone",
+    "name": "name"
+}
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr><th colspan=2><strong>Ответ</strong></th></tr>
+                <tr>
+                    <td>Код</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>200</td>
+                    <td rowspan=2>удачная операция</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>500</td>
+                    <td>ошибка при выполнении запроса</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+    <details>
+        <summary>
+            <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/user?action=login</strong> &nbsp;&nbsp; авторизация пользователя
+        </summary>
+        <p></p>
+        <table>
+            <tbody>
+                <tr><th colspan=2><strong>Параметры</strong></th></tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>
+                        <strong>тело запроса</strong> <sup>* required</sup><br>
+                        <sup>object</sup>
+                    </td>
+                    <td rowspan=2>
+                        
+```json
+{
+    "login": "login",
+    "password": "password"
+}
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr><th colspan=2><strong>Ответ</strong></th></tr>
+                <tr>
+                    <td>Код</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>200</td>
+                    <td rowspan=2>удачная операция</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>500</td>
+                    <td>ошибка при выполнении запроса</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+    <details>
+        <summary>
+            <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/user?action=logout</strong> &nbsp;&nbsp; выход из системы
+        </summary>
+        <p></p>
+        <table>
+            <tbody>
+                <tr><th colspan=2><strong>Параметры</strong></th></tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        без параметров
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr><th colspan=2><strong>Ответ</strong></th></tr>
+                <tr>
+                    <td>Код</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>200</td>
+                    <td rowspan=2>удачная операция</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+</div>
+
+<h3><a name="api_announcement">announcement</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
+<p>
+    Операции с объявлением<br>
+    <code>ru.reybos.servlet.AnnouncementServlet</code>
+</p>
+<div>
+    <details>
+        <summary>
+            <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/announcement?action=get-form-fields</strong> &nbsp;&nbsp; получить данные для полей формы добавления нового объявления
+        </summary>
+        <p></p>
+        <table>
+            <tbody>
+                <tr><th colspan=2><strong>Параметры</strong></th></tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        без параметров
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr><th colspan=2><strong>Ответ</strong></th></tr>
+                <tr>
+                    <td>Код</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>200</td>
+                    <td rowspan=2>
+                    
+```json
+{
+    "fields": {
+        "cities": [
+            {"id": 4, "name": "Казань"},
+            {"id": 3, "name": "Краснодар"},
+            {"id": 1, "name": "Москва"},
+            {"id": 2, "name": "Санкт-Петербург"}
+        ],
+        "carModels": [
+            {"id": 1, "name": "BMW"},
+            {"id": 4, "name": "Honda"},
+            {"id": 2, "name": "Lada"},
+            {"id": 3, "name": "Toyota"}
+        ],
+        "carBodyTypes": [
+            {"id": 1, "name": "Седан"},
+            {"id": 3, "name": "Универсал"},
+            {"id": 2, "name": "Хетчбэк"}
+        ],
+        "carEngineTypes": [
+            {"id": 1, "name": "Бензин"},
+            {"id": 2, "name": "Дизель"}
+        ],
+        "carTransmissionBoxTypes": [
+            {"id": 2, "name": "Автомат"},
+            {"id": 1, "name": "Механика"},
+            {"id": 3, "name": "Робот"}
+        ],
+        "announcementType": {"id": 1, "name": "транспорт"},
+    },
+    "user": {
+        "id": 1,
+        "name": "Андрей", 
+        "login": "test", 
+        "phone": "1234567890"
+    }
+}
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>500</td>
+                    <td>ошибка при выполнении запроса</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+    <details>
+        <summary>
+            <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/announcement?action=save</strong> &nbsp;&nbsp; сохранение нового объявления
+        </summary>
+        <p></p>
+        <table>
+            <tbody>
+                <tr><th colspan=2><strong>Параметры</strong></th></tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>
+                        <strong>тело запроса</strong> <sup>* required</sup><br>
+                        <sup>object</sup>
+                    </td>
+                    <td rowspan=2>
+                        
+```json
+{
+    "price": 100000,
+    "isSold": false,
+    "city": {"id": 4},
+    "announcementType": {"id": 1},
+    "user": {"id": 1},
+    "car": {
+        "isNew": false,
+        "mileage": 10000,
+        "isBroken": false,
+        "description": "Описание машины",
+        "carModel" : {"id": 4},
+        "carBodyType": {"id": 3},
+        "carEngineType": {"id": 1},
+        "carTransmissionBoxType": {"id": 2}
+    }
+}
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr><th colspan=2><strong>Ответ</strong></th></tr>
+                <tr>
+                    <td>Код</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>200</td>
+                    <td rowspan=2>
+
+```json
+{
+    "id": 7,
+    "created": "27-03-2021 16:00:00",
+    "price": 100000,
+    "isSold": false,
+    "user": {
+        "id": 1,
+        "name": "Андрей",
+        "login": "test",
+        "phone": "1234567890"
+    },
+    "city": {"id": 4, "name": "Казань"},
+    "announcementType": {"id": 1,"name": "транспорт"},
+    "car": {
+        "id": 6,
+        "isNew": false,
+        "mileage": 10000,
+        "isBroken": false,
+        "description": "Описание машины",
+        "carModel": {"id": 4},
+        "carBodyType": {"id": 3},
+        "carEngineType": {"id": 1},
+        "carTransmissionBoxType": {"id": 2},
+        "carPhotos":[]
+    }
+}
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>500</td>
+                    <td>ошибка при выполнении запроса</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+    <details>
+        <summary>
+            <strong><code>&nbsp;&nbsp;POST&nbsp;&nbsp;</code></strong> &nbsp;&nbsp; <strong>/announcement?action=update</strong> &nbsp;&nbsp; обновление объявления
+        </summary>
+        <p></p>
+        <table>
+            <tbody>
+                <tr><th colspan=2><strong>Параметры</strong></th></tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>
+                        <strong>тело запроса</strong> <sup>* required</sup><br>
+                        <sup>object</sup>
+                    </td>
+                    <td rowspan=2>На сервер отправляются поля которые нужно изменить и айди объявления. На данный момент реализовано обновление одного поля.
+                        
+```json
+{
+    "isSold": true,
+    "announcementId": 7,
+}
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr><th colspan=2><strong>Ответ</strong></th></tr>
+                <tr>
+                    <td>Код</td>
+                    <td>Описание</td>
+                </tr>
+                <tr>
+                    <td rowspan=2>200</td>
+                    <td rowspan=2>
+
+```json
+{
+    "id": 7,
+    "created": "27-03-2021 16:00:00",
+    "price": 100000,
+    "isSold": true,
+    "user": {
+        "id": 1,
+        "name": "Андрей",
+        "login": "test",
+        "phone": "1234567890"
+    },
+    "city": {"id": 4, "name": "Казань"},
+    "announcementType": {"id": 1,"name": "транспорт"},
+    "car": {
+        "id": 6,
+        "isNew": false,
+        "mileage": 10000,
+        "isBroken": false,
+        "description": "Описание машины",
+        "carModel": {"id": 4},
+        "carBodyType": {"id": 3},
+        "carEngineType": {"id": 1},
+        "carTransmissionBoxType": {"id": 2},
+        "carPhotos":[]
+    }
+}
+```
+</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>500</td>
+                    <td>ошибка при выполнении запроса</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+</div>
+
 <h2><a name="intarface">Пользовательский интерфейс</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
 
 <h3><a name="main_page">Главная страница</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
@@ -194,101 +566,6 @@
 <p align="center">
   <img src="images/2.png" height="400" title="регистрация">
 </p>
-
-<h2><a name="api">API</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
-<p>
-    Для более быстрого знакомства с приложением собрал основные запросы и ответы системы. 
-    Также указанны сервлеты которые их обрабатывают.
-</p>
-
-<h3><a name="api_error">Ошибки</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>
-    В приложении используются обычные коды ответа HTTP, чтобы указать успешность или неудачу запроса API.
-    В случае возникновения ошибки на стороне сервера при обработке запроса, возвращается <br>
-    <strong><code>500 Internal Server Error («внутренняя ошибка сервера»)</code></strong>
-</p>
-
-<h3><a name="api_user">Пользователи</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<dl>
-  <dt>Сервлет</dt>
-  <dd>
-    <code>ru.reybos.servlet.UserServlet</code>
-  </dd>
-</dl>
-
-<h3><a name="api_registration">Регистрация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>Регистрация нового пользователя на сайте.</p>
-<dl>
-  <dt>Запрос</dt>
-  <dd>
-    <strong>POST</strong> <code>user?action=registration</code>
-  </dd>
-  <dt>Тело запроса</dt>
-  <dd>
-      <p>
-          <strong><code>name</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
-          имя пользователя
-      </p>
-      <p>
-          <strong><code>phone</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
-          телефон пользователя
-      </p>
-      <p>
-          <strong><code>login</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
-          логин пользователя
-      </p>
-      <p>
-          <strong><code>password</code></strong>&nbsp;&nbsp;&nbsp;&nbsp;обязательный <br>
-          пароль пользователя
-      </p>
-  </dd>
-  <dt>Успешный ответ</dt>
-  <dd>
-    <code>HTTP Status 200</code>
-  </dd>
-</dl>
-
-<h3><a name="api_login">Авторизация</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<p>Вход на сайт раннее зарегистрированного пользователя</p>
-<dl>
-  <dt>Запрос</dt>
-  <dd>
-    <strong>POST</strong> <code>user?action=login</code>
-  </dd>
-  <dt>Тело запроса</dt>
-  <dd>
-      <p>
-          <strong><code>login</code></strong>&nbsp;&nbsp;обязательный <br>
-          логин пользователя
-      </p>
-      <p>
-          <strong><code>password</code></strong>&nbsp;&nbsp;обязательный <br>
-          пароль пользователя
-      </p>
-  </dd>
-  <dt>Успешный ответ</dt>
-  <dd>
-    <code>HTTP Status 200</code>
-  </dd>
-</dl>
-
-<h3><a name="api_logout">Выход из системы</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h3>
-<dl>
-  <dt>Запрос</dt>
-  <dd>
-    <strong>POST</strong> <code>user?action=logout</code>
-  </dd>
-  <dt>Тело запроса</dt>
-  <dd>
-      <p>
-          <strong><code>пустое</code></strong>
-      </p>
-  </dd>
-  <dt>Успешный ответ</dt>
-  <dd>
-    <code>HTTP Status 200</code>
-  </dd>
-</dl>
 
 <h2><a name="links">Полезные ссылки</a>&nbsp;&nbsp;<a href="#menu">&#9650;</a></h2>
 <p>Ресурсы которые были полезны при создании проекта</p>

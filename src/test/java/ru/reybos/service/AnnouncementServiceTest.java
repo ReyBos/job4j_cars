@@ -190,9 +190,9 @@ public class AnnouncementServiceTest {
         expectedFieldsMap.put("carEngineTypes", CAR_ENGINE_TYPES);
         expectedFieldsMap.put("carTransmissionBoxTypes", CAR_TRANSMISSION_BOX_TYPES);
         expectedFieldsMap.put("announcementType", announcementType);
-        expectedFieldsMap.put("user", user);
         Map<String, Object> expectedMap = new LinkedHashMap<>();
         expectedMap.put("fields", expectedFieldsMap);
+        expectedMap.put("user", user);
 
         assertThat(rsl.get(), is(GSON.toJson(expectedMap)));
     }

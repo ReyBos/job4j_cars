@@ -14,7 +14,7 @@ function loadFieldsData() {
         showSelect(data.fields.carEngineTypes, ".js-engine");
         showSelect(data.fields.carTransmissionBoxTypes, ".js-transmission_box");
         $('.js-announcement-type').val(data.fields.announcementType.id);
-        $('.js-user').val(data.fields.user.id);
+        $('.js-user').val(data.user.id);
 
         $('select').formSelect();
         $('.js-add-next').prop("disabled", false);

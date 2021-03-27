@@ -132,11 +132,12 @@ public class AnnouncementService {
                 List<AnnouncementType> announcementTypes = store.findAllAnnouncementType();
                 fieldsData.put("announcementType", announcementTypes.get(0));
 
+                response.put("fields", fieldsData);
+
                 HttpSession session = request.getSession();
                 User currentUser = (User) session.getAttribute("user");
-                fieldsData.put("user", currentUser);
+                response.put("user", currentUser);
 
-                response.put("fields", fieldsData);
                 rsl = Optional.of(gson.toJson(response));
             } catch (Exception e) {
                 LOG.error("Ошибка получения данных объявления", e);
