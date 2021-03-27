@@ -37,8 +37,10 @@ public class AuthFilter implements Filter {
             return;
         }
         if (
-                query.endsWith("login") || query.endsWith("registration") || uri.endsWith("/")
-                || uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".jpeg")
+                query.endsWith("login") || query.endsWith("registration")
+                || uri.endsWith("/photo") || query.endsWith("get-all-announcement")
+                || uri.endsWith("/") || uri.endsWith(".css") || uri.endsWith(".js")
+                || uri.endsWith(".jpeg")
         ) {
             chain.doFilter(sreq, sresp);
             return;

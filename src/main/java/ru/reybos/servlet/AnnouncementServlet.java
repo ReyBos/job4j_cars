@@ -59,6 +59,7 @@ public class AnnouncementServlet extends HttpServlet {
      * ?action=update -> обновить объявление
      * ?action=get-form-fields -> получить данные для полей формы добавления нового объявления
      * ?action=get-user-announcement&id=id -> получть объявления пользователя
+     * ?action=get-all-announcement -> получть все объявления
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

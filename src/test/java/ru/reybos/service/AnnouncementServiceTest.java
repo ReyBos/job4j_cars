@@ -321,4 +321,15 @@ public class AnnouncementServiceTest {
         List<Announcement> expected = List.of(announcement);
         assertThat(rsl.get(), is(GSON.toJson(expected)));
     }
+
+    @Test
+    public void whenGetAllAnnouncementThenSuccess() {
+        AnnouncementService service = AnnouncementService.getInstance();
+        when(request.getParameter("action")).thenReturn("get-all-announcement");
+        Optional<String> rsl = service.execute(request);
+        assertTrue(rsl.isPresent());
+
+        List<Announcement> expected = List.of(announcement);
+        assertThat(rsl.get(), is(GSON.toJson(expected)));
+    }
 }

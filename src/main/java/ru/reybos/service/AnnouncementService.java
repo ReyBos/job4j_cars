@@ -47,6 +47,7 @@ public class AnnouncementService {
         this.load("update", update());
         this.load("get-form-fields", getFormFields());
         this.load("get-user-announcement", getUserAnnouncement());
+        this.load("get-all-announcement", getAllAnnouncement());
     }
 
     public static AnnouncementService getInstance() {
@@ -98,7 +99,7 @@ public class AnnouncementService {
                 if (jsonFromForm.has("isSold")) {
                     announcementFromDb.setSold(jsonFromForm.get("isSold").getAsBoolean());
                 }
-                store.save(announcementFromDb);
+                store.update(announcementFromDb);
                 announcement = Optional.of(gson.toJson(announcementFromDb));
             } catch (Exception e) {
                 LOG.error("Ошибка обновления объявления", e);
@@ -154,6 +155,19 @@ public class AnnouncementService {
                 String userId = request.getParameter("id");
                 List<Announcement> announcements =
                         store.findAnnouncementByUserId(Integer.parseInt(userId));
+                rsl = Optional.of(gson.toJson(announcements));
+            } catch (Exception e) {
+                LOG.error("Ошибка получения данных объявления", e);
+            }
+            return rsl;
+        };
+    }
+
+    private Function<HttpServletRequest, Optional<String>> getAllAnnouncement() {
+        return request -> {
+            Optional<String> rsl = Optional.empty();
+            try {
+                List<Announcement> announcements = store.findAllAnnouncement();
                 rsl = Optional.of(gson.toJson(announcements));
             } catch (Exception e) {
                 LOG.error("Ошибка получения данных объявления", e);
