@@ -149,7 +149,7 @@
 ```
 </li>
     <li>
-        Выполните команду <code>mvn install -Pproduction</code> в корне проекта для его сборки<br>
+        Выполните команду <code>mvn install -DskipTests -Pproduction</code> в корне проекта для его сборки<br>
         Будет выполнена миграция БД с помощью Liquibase.<br>
         В случае успешной сборки появится файл <code>target/cars-&#60;version&#62;.war</code><br>
         переименуйте его в <code>cars.war</code>
